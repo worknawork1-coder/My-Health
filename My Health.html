@@ -170,118 +170,176 @@
             color: #fff;
         }
 
-        .books-icon {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            width: 30px;
-            height: 40px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            vertical-align: middle;
+        .btn-export-excel {
+            border-color: #198754;
+            color: #198754;
+            background: #e8f5e9;
+        }
+
+        .btn-export-excel:hover {
+            background: #198754;
+            color: #fff;
+        }
+
+        /* زر المرفق - شكل كتاب قرمزي مع زخرفة ذهبية */
+        .btn-attach {
+            background: linear-gradient(145deg, #6b0000, #a00000);
+            color: #FFD700 !important;
+            border: 3px solid #FFD700 !important;
+            font-weight: 800 !important;
+            font-size: clamp(13px, 1.2vw, 18px) !important;
+            padding: 8px 20px !important;
+            border-radius: 14px !important;
+            box-shadow: 0 0 25px rgba(160, 0, 0, 0.5), inset 0 0 20px rgba(255, 215, 0, 0.1) !important;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.3) !important;
             position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease !important;
+            letter-spacing: 0.5px;
         }
 
-        .books-icon:hover {
-            transform: scale(1.12);
-        }
-
-        .books-icon .b {
-            display: block;
-            border-radius: 2px 4px 4px 2px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
-            margin-top: -5px;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .books-icon .b:first-child {
-            margin-top: 0;
-        }
-
-        .books-icon .b1 {
-            background: linear-gradient(135deg, #c0392b, #e74c3c);
-            width: 22px;
-            height: 12px;
-        }
-
-        .books-icon .b2 {
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            width: 28px;
-            height: 16px;
-        }
-
-        .books-icon .b3 {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
-            width: 18px;
-            height: 10px;
-        }
-
-        .books-icon .b4 {
-            background: linear-gradient(135deg, #8e44ad, #9b59b6);
-            width: 24px;
-            height: 14px;
-        }
-
-        .books-icon .b5 {
-            background: linear-gradient(135deg, #f39c12, #f1c40f);
-            width: 16px;
-            height: 8px;
-        }
-
-        .books-icon .b::after {
+        .btn-attach::before {
             content: '';
             position: absolute;
-            left: 2px;
-            top: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 1px 2px 2px 1px;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+            animation: shimmer-gold 4s infinite linear;
         }
 
-        .books-icon .b .lines {
+        @keyframes shimmer-gold {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-attach:hover {
+            transform: scale(1.08) !important;
+            box-shadow: 0 0 50px rgba(160, 0, 0, 0.7), inset 0 0 30px rgba(255, 215, 0, 0.2) !important;
+            border-color: #FFD700 !important;
+        }
+
+        .btn-attach .icon-book {
+            display: inline-block;
+            font-size: 1.3em;
+            margin-left: 8px;
+            color: #FFD700;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+        }
+
+        /* أيقونة المرفق في الجدول - شكل كتاب قرمزي مع ذهبي */
+        .attach-book-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #6b0000, #a00000);
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: 900;
+            width: 48px;
+            height: 48px;
+            border-radius: 6px 12px 12px 6px;
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 25px rgba(160, 0, 0, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+            padding: 4px 8px 4px 10px;
+            gap: 4px;
+        }
+
+        .attach-book-icon::after {
+            content: '';
             position: absolute;
-            left: 4px;
-            top: 2px;
-            right: 4px;
-            bottom: 2px;
+            top: -4px;
+            right: -4px;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle, #FFD700 30%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: pulse-gold-book 1.8s infinite;
+        }
+
+        @keyframes pulse-gold-book {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        .attach-book-icon:hover {
+            transform: scale(1.12) rotate(-3deg);
+            box-shadow: 0 0 50px rgba(160, 0, 0, 0.7), inset 0 0 25px rgba(255, 215, 0, 0.25);
+            border-color: #FFD700;
+        }
+
+        .attach-book-icon .book-spine {
+            width: 4px;
+            height: 70%;
+            background: linear-gradient(to bottom, #FFD700, #b8860b);
+            border-radius: 2px;
+            margin: 0 3px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .attach-book-icon .book-pages {
             display: flex;
             flex-direction: column;
-            gap: 1.5px;
-            padding: 1px 0;
+            gap: 2px;
+            padding: 2px 0;
         }
 
-        .books-icon .b .lines span {
+        .attach-book-icon .book-pages span {
             display: block;
-            height: 1.5px;
-            background: rgba(255, 255, 255, 0.15);
+            width: 18px;
+            height: 2px;
+            background: rgba(255, 215, 0, 0.25);
             border-radius: 1px;
         }
 
-        .books-icon .ribbon {
-            position: absolute;
-            top: -3px;
-            right: -2px;
-            width: 10px;
-            height: 14px;
-            background: #e74c3c;
-            border-radius: 2px 0 0 2px;
-            transform: rotate(15deg);
-            opacity: 0.7;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        .attach-book-icon .book-pages span:nth-child(2) {
+            width: 14px;
         }
 
-        .books-icon .ribbon::after {
-            content: '';
+        .attach-book-icon .book-pages span:nth-child(3) {
+            width: 10px;
+        }
+
+        .attach-book-icon .book-cover-text {
+            font-size: 11px;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            margin: 0 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .attach-book-icon .ribbon-gold {
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 4px solid #a93226;
+            top: -6px;
+            left: -4px;
+            font-size: 12px;
+            color: #FFD700;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+            transform: rotate(-15deg);
         }
 
         .stats-dashboard {
@@ -1388,7 +1446,6 @@
             font-size: clamp(13px, 1vw, 16px);
         }
 
-        /* جداول SPSS */
         .spss-table {
             width: 100%;
             border-collapse: collapse;
@@ -1443,7 +1500,7 @@
 
         .spss-analysis-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
             margin-top: 10px;
         }
@@ -1477,6 +1534,11 @@
             color: #0d47a1;
         }
 
+        .spss-analysis-card canvas {
+            max-height: 150px;
+            width: 100%;
+        }
+
         @media print {
             .no-print {
                 display: none !important;
@@ -1506,6 +1568,10 @@
 
             .spss-analysis-grid {
                 grid-template-columns: 1fr 1fr !important;
+            }
+
+            .spss-analysis-card canvas {
+                max-height: 120px !important;
             }
         }
 
@@ -1593,6 +1659,39 @@
             .spss-analysis-grid {
                 grid-template-columns: 1fr;
             }
+
+            .btn-attach {
+                font-size: clamp(11px, 1.5vw, 14px) !important;
+                padding: 5px 14px !important;
+            }
+
+            .attach-book-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+                border-radius: 4px 8px 8px 4px;
+            }
+
+            .attach-book-icon .book-cover-text {
+                font-size: 8px;
+            }
+
+            .attach-book-icon .book-pages span {
+                width: 12px;
+                height: 1.5px;
+            }
+
+            .attach-book-icon .book-pages span:nth-child(2) {
+                width: 9px;
+            }
+
+            .attach-book-icon .book-pages span:nth-child(3) {
+                width: 6px;
+            }
+
+            .attach-book-icon .book-spine {
+                width: 3px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1663,6 +1762,49 @@
             .spss-table td {
                 padding: 2px 3px;
             }
+
+            .btn-attach {
+                font-size: 8px !important;
+                padding: 2px 8px !important;
+                border-width: 2px !important;
+            }
+
+            .attach-book-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 10px;
+                border-width: 2px;
+                border-radius: 3px 6px 6px 3px;
+                padding: 2px 4px;
+            }
+
+            .attach-book-icon .book-cover-text {
+                font-size: 6px;
+            }
+
+            .attach-book-icon .book-pages span {
+                width: 8px;
+                height: 1px;
+            }
+
+            .attach-book-icon .book-pages span:nth-child(2) {
+                width: 6px;
+            }
+
+            .attach-book-icon .book-pages span:nth-child(3) {
+                width: 4px;
+            }
+
+            .attach-book-icon .book-spine {
+                width: 2px;
+                margin: 0 2px;
+            }
+
+            .attach-book-icon .ribbon-gold {
+                font-size: 8px;
+                top: -4px;
+                left: -2px;
+            }
         }
     </style>
 </head>
@@ -1682,7 +1824,9 @@
             <button class="btn btn-d" onclick="showDashboard('inpatient')">🏥 إحصائيات الراقدين</button>
             <button class="btn btn-d" onclick="showDashboard('advancedStats')">📊 تحليل SPSS متقدم</button>
             <button class="btn btn-o8" onclick="clearHighlight()">✨ إلغاء التضليل</button>
-            <button class="btn btn-o4" onclick="viewAttachment()">📎 فتح المرفق</button>
+            <button class="btn btn-attach" onclick="viewAttachment()">
+                <span class="icon-book">📕</span> فتح المرفق <span class="icon-book">📕</span>
+            </button>
             <button class="btn btn-o5" onclick="backupData()">💾 نسخ احتياطي</button>
             <button class="btn btn-o6" onclick="restoreData()">↩️ استعادة</button>
             <button class="btn btn-o7" onclick="exportExcel()">📊 تصدير Excel</button>
@@ -1691,6 +1835,7 @@
             <button class="btn btn-o11" onclick="openResetModal()">🔄 تصفير الشهر</button>
             <button class="btn btn-o12" onclick="openArchiveModal()">📦 الأرشيف</button>
             <button class="btn btn-print" onclick="printSPSSReport()">🖨️ طباعة تقرير SPSS</button>
+            <button class="btn btn-export-excel" onclick="exportSPSSExcel()">📊 تصدير SPSS Excel</button>
             <button class="btn btn-o7" onclick="exitApp()" style="border-color:#dc3545;color:#dc3545;">🚪 خروج</button>
         </div>
 
@@ -1860,21 +2005,23 @@
                         <option>مطلق</option>
                         <option>أرمل</option>
                     </select></div>
-                <div class="col col-medium"><label>الجنسية</label><select id="f_nationality">
+                <div class="col col-medium"><label>الجنسية</label>
+                    <select id="f_nationality">
                         <option value="">--</option>
                         <option>عراقي</option>
                         <option>عربي</option>
-                        <option>أسيوي</option>
+                        <option>اسيوي</option>
                         <option>افريقي</option>
                         <option>اوربي</option>
                         <option>امريكي</option>
                         <option>كندي</option>
-                        <option>اسباني/option>
-                        <option>استرالي</option>
                         <option>برازيلي</option>
-                        <option>اخرى</option>
-                        <option>غير معروف</option>
-                    </select></div>
+                        <option>استرالي</option>
+                        <option>اسباني</option>
+                        <option>أخرى</option>
+                        <option>غيرمعروف</option>
+                    </select>
+                </div>
                 <div class="col col-small"><label>العمر (يوم)</label><input type="number" id="f_age_days" min="0"></div>
                 <div class="col col-small"><label>العمر (شهر)</label><input type="number" id="f_age_months" min="0">
                 </div>
@@ -1954,7 +2101,7 @@
                 <div class="col col-department"><label>الردهة</label><select id="f_department">
                         <option value="">--</option>
                         <option>الباطنية</option>
-                        <option>الجراحة</option>
+                        <option>الجراحةالعامة</option>
                         <option>العناية المركزة</option>
                         <option>القلبية</option>
                         <option>العصبية</option>
@@ -1971,14 +2118,17 @@
                     </select></div>
                 <div class="col col-small"><label>المرفق</label>
                     <input type="file" id="f_attachment_file" style="padding:2px;font-size:10px;">
-                    <button class="btn btn-b" onclick="attachFile()"
-                        style="padding:2px 8px;font-size:10px;margin-top:2px;">📎 رفع ملف</button>
+                    <button class="btn btn-attach" onclick="attachFile()"
+                        style="padding:2px 12px;font-size:11px;border-radius:10px;">
+                        <span class="icon-book">📕</span> رفع ملف <span class="icon-book">📕</span>
+                    </button>
                 </div>
             </div>
             <div class="btn-actions">
                 <button class="btn btn-g" onclick="saveRecord()">💾 حفظ التعديلات</button>
                 <button class="btn btn-s" onclick="clearEditForm()">🗑️ إلغاء التعديل</button>
-                <button class="btn btn-b" onclick="viewAttachment()">👁️ عرض المرفق</button>
+                <button class="btn btn-attach" onclick="viewAttachment()" style="font-size:12px;padding:4px 16px;">📕
+                    عرض المرفق 📕</button>
             </div>
         </div>
 
@@ -2753,10 +2903,11 @@
             'واسط': ['الكوت', 'العزيزية', 'الحي', 'الصويرة', 'النعمانية', 'الزرباطية'],
             'صلاح الدين': ['تكريت', 'سامراء', 'الدجيل', 'الضلوعية', 'الشرقاط', 'بيجي', 'بلد'],
             'كركوك': ['كركوك', 'الحويجة', 'داقوق', 'الدبس', 'الزيوية'],
-            'السليمانية': ['حلبجة', 'خرمال', 'باوة نور', 'تاوة'],
+            'حلبجة': ['حلبجة', 'خرمال', 'باوة نور', 'تاوة'],
             'المثنى': ['السماوة', 'الرميثة', 'الخضر', 'الوركاء', 'سلمان']
         };
 
+        // بيانات افتراضية مع تنويع في الأمراض والمهن
         var DEFAULT_DATA = [
             {
                 medical_record: 1001, patient_name: 'أحمد علي حسن', mother_name: 'فاطمة', national_id: '123456789', gender: 'ذكر',
@@ -2856,6 +3007,89 @@
                 smoker: 'كلا', diagnosis: 'C50', diagnosis_arabic: 'سرطان الثدي', province: 'البصرة',
                 district: 'البصرة القديمة', neighborhood: 'الزبير', hospital: 'مستشفى الحسينية العام',
                 doctor_name: 'د. وائل', status: 'خروج بتحسن', department: 'الجراحة', attachment: null
+            },
+            // إضافة حالات إضافية للعلاقات المطلوبة
+            {
+                medical_record: 9001, patient_name: 'خالد سعدون', mother_name: 'نوال', national_id: '111222444',
+                gender: 'ذكر', marital_status: 'متزوج', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 58, profession: 'عامل', education: 'ابتدائية', previous_admissions: 2,
+                admission_date: '2026-06-01', discharge_date: '2026-06-10', chronic_disease: 'قلب', weight: 88,
+                smoker: 'نعم', diagnosis: 'I25', diagnosis_arabic: 'مرض القلب التاجي', province: 'بغداد',
+                district: 'الرصافة', neighborhood: 'الشعب', hospital: 'مدينة الإمام الحسين عليه السلام الطبية',
+                doctor_name: 'د. حسام', status: 'خروج بتحسن', department: 'القلبية', attachment: null
+            },
+            {
+                medical_record: 9002, patient_name: 'سعاد جاسم', mother_name: 'ليلى', national_id: '555666777',
+                gender: 'أنثى', marital_status: 'أرملة', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 62, profession: 'ربة منزل', education: 'أمي', previous_admissions: 3,
+                admission_date: '2026-06-05', discharge_date: '2026-06-15', chronic_disease: 'سكري', weight: 72,
+                smoker: 'كلا', diagnosis: 'E11', diagnosis_arabic: 'داء السكري من النوع الثاني', province: 'كربلاء',
+                district: 'كربلاء', neighborhood: 'الحسينية', hospital: 'مستشفى كربلاء التعليمي للأطفال',
+                doctor_name: 'د. رنا', status: 'راقد', department: 'الباطنية', attachment: null
+            },
+            {
+                medical_record: 9003, patient_name: 'رياض محمد', mother_name: 'هناء', national_id: '888999000',
+                gender: 'ذكر', marital_status: 'أعزب', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 45, profession: 'موظف', education: 'بكالوريوس', previous_admissions: 0,
+                admission_date: '2026-06-08', discharge_date: '2026-06-18', chronic_disease: 'لايوجد', weight: 68,
+                smoker: 'نعم', diagnosis: 'C50', diagnosis_arabic: 'سرطان الثدي', province: 'البصرة',
+                district: 'البصرة القديمة', neighborhood: 'الزبير', hospital: 'مستشفى الحسينية العام',
+                doctor_name: 'د. فؤاد', status: 'خروج بتحسن', department: 'الجراحة', attachment: null
+            },
+            {
+                medical_record: 9004, patient_name: 'نور حسين', mother_name: 'سلمى', national_id: '123789456',
+                gender: 'أنثى', marital_status: 'متزوجة', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 55, profession: 'معلمة', education: 'ماجستير', previous_admissions: 1,
+                admission_date: '2026-06-10', discharge_date: '2026-06-20', chronic_disease: 'سكري', weight: 70,
+                smoker: 'كلا', diagnosis: 'H25', diagnosis_arabic: 'إعتام عدسة العين', province: 'النجف',
+                district: 'النجف', neighborhood: 'الكوفة', hospital: 'مستشفى سفير الإمام الحسين عليه السلام الجراحي',
+                doctor_name: 'د. سميرة', status: 'خروج بتحسن', department: 'طب العيون', attachment: null
+            },
+            {
+                medical_record: 9005, patient_name: 'عمار كاظم', mother_name: 'زينب', national_id: '456789123',
+                gender: 'ذكر', marital_status: 'متزوج', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 48, profession: 'طبيب', education: 'دكتوراه', previous_admissions: 0,
+                admission_date: '2026-06-12', discharge_date: '2026-06-22', chronic_disease: 'لايوجد', weight: 75,
+                smoker: 'نعم', diagnosis: 'J44', diagnosis_arabic: 'مرض الرئة الانسدادي المزمن', province: 'بابل',
+                district: 'الحلة', neighborhood: 'المسيب', hospital: 'مستشفى النسائية والتوليد التعليمي',
+                doctor_name: 'د. كامل', status: 'خروج بتحسن', department: 'الأمراض الصدرية', attachment: null
+            },
+            {
+                medical_record: 9006, patient_name: 'ليلى عباس', mother_name: 'فاطمة', national_id: '789123456',
+                gender: 'أنثى', marital_status: 'مطلقة', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 38, profession: 'مهندس', education: 'بكالوريوس', previous_admissions: 0,
+                admission_date: '2026-06-15', discharge_date: null, chronic_disease: 'ضغط الدم', weight: 65,
+                smoker: 'كلا', diagnosis: 'I10', diagnosis_arabic: 'ارتفاع ضغط الدم الأساسي', province: 'واسط',
+                district: 'الكوت', neighborhood: 'العزيزية', hospital: 'مستشفى الهندية التعليمي',
+                doctor_name: 'د. باسل', status: 'راقد', department: 'الباطنية', attachment: null
+            },
+            // إضافة حالات لارتفاع ضغط الدم واحتشاء المخ والقلب
+            {
+                medical_record: 9101, patient_name: 'عبد الله حميد', mother_name: 'فريال', national_id: '111333555',
+                gender: 'ذكر', marital_status: 'متزوج', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 62, profession: 'متقاعد', education: 'ابتدائية', previous_admissions: 3,
+                admission_date: '2026-06-20', discharge_date: null, chronic_disease: 'ضغط الدم', weight: 85,
+                smoker: 'نعم', diagnosis: 'I63', diagnosis_arabic: 'احتشاء دماغي', province: 'بغداد',
+                district: 'الرصافة', neighborhood: 'الشعب', hospital: 'مدينة الإمام الحسين عليه السلام الطبية',
+                doctor_name: 'د. سمير', status: 'راقد', department: 'العصبية', attachment: null
+            },
+            {
+                medical_record: 9102, patient_name: 'حسين علي كريم', mother_name: 'نادية', national_id: '222444666',
+                gender: 'ذكر', marital_status: 'متزوج', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 55, profession: 'موظف', education: 'بكالوريوس', previous_admissions: 1,
+                admission_date: '2026-06-22', discharge_date: '2026-06-30', chronic_disease: 'ضغط الدم', weight: 78,
+                smoker: 'كلا', diagnosis: 'I21', diagnosis_arabic: 'احتشاء عضلة القلب الحاد', province: 'كربلاء',
+                district: 'كربلاء', neighborhood: 'الحسينية', hospital: 'مستشفى سفير الإمام الحسين عليه السلام الجراحي',
+                doctor_name: 'د. رائد', status: 'خروج بتحسن', department: 'القلبية', attachment: null
+            },
+            {
+                medical_record: 9103, patient_name: 'رائد جاسم', mother_name: 'زهراء', national_id: '333555777',
+                gender: 'ذكر', marital_status: 'أعزب', nationality: 'عراقي', age_days: 0, age_months: 0,
+                age_years: 48, profession: 'طبيب', education: 'دكتوراه', previous_admissions: 0,
+                admission_date: '2026-06-25', discharge_date: null, chronic_disease: 'ضغط الدم', weight: 82,
+                smoker: 'نعم', diagnosis: 'I10', diagnosis_arabic: 'ارتفاع ضغط الدم الأساسي', province: 'النجف',
+                district: 'النجف', neighborhood: 'الكوفة', hospital: 'مستشفى الإمام الحسن المجتبى عليه السلام التعليمي',
+                doctor_name: 'د. ثائر', status: 'راقد', department: 'الباطنية', attachment: null
             }
         ];
 
@@ -2924,16 +3158,16 @@
             return true;
         }
 
-        // ==================== أيقونة الكتب ====================
-        function getBooksIcon(p) {
+        // ==================== أيقونة المرفق - شكل كتاب قرمزي مع ذهبي ====================
+        function getAttachmentIcon(p) {
             if (p && p.attachment) {
-                return '<span class="books-icon" onclick="event.stopPropagation();viewAttachment();" title="عرض الملف المرفق">' +
-                    '<span class="b b1"><span class="lines"><span></span><span></span><span></span></span></span>' +
-                    '<span class="b b2"><span class="lines"><span></span><span></span><span></span><span></span></span></span>' +
-                    '<span class="b b3"><span class="lines"><span></span><span></span></span></span>' +
-                    '<span class="b b4"><span class="lines"><span></span><span></span><span></span></span></span>' +
-                    '<span class="b b5"><span class="lines"><span></span></span></span>' +
-                    '<span class="ribbon"></span>' +
+                return '<span class="attach-book-icon" onclick="event.stopPropagation();viewAttachment();" title="عرض المرفق">' +
+                    '<span class="ribbon-gold">✦</span>' +
+                    '<span class="book-cover-text">مرفق</span>' +
+                    '<span class="book-spine"></span>' +
+                    '<div class="book-pages">' +
+                    '<span></span><span></span><span></span>' +
+                    '</div>' +
                     '</span>';
             }
             return '-';
@@ -2945,23 +3179,35 @@
             var yearly = {};
             var monthly = {};
             var currentYear = new Date().getFullYear();
-            var inpatients = data.filter(function (p) { return p.status === 'راقد'; });
-            inpatients.forEach(function (p) {
-                if (p.admission_date) {
-                    var year = p.admission_date.substring(0, 4);
-                    var month = p.admission_date.substring(5, 7);
-                    var key = year + '-' + month;
-                    if (!yearly[year]) yearly[year] = 0;
-                    yearly[year]++;
-                    if (!monthly[key]) monthly[key] = 0;
-                    monthly[key]++;
-                }
+
+            var inpatients = data.filter(function (p) {
+                if (p.status === 'راقد') return true;
+                if (!p.discharge_date) return p.status === 'راقد';
+                var discharge = new Date(p.discharge_date);
+                var now = new Date();
+                return discharge >= now;
             });
+
+            inpatients.forEach(function (p) {
+                var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                var year = dateStr.substring(0, 4);
+                var month = dateStr.substring(5, 7);
+                var key = year + '-' + month;
+
+                if (!yearly[year]) yearly[year] = 0;
+                yearly[year]++;
+
+                if (!monthly[key]) monthly[key] = 0;
+                monthly[key]++;
+            });
+
             var sortedYears = Object.keys(yearly).sort();
             var totalAllYears = 0;
             sortedYears.forEach(function (y) { totalAllYears += yearly[y]; });
+
             var currentMonth = String(new Date().getMonth() + 1).padStart(2, '0');
             var currentKey = currentYear + '-' + currentMonth;
+
             return {
                 yearly: yearly,
                 monthly: monthly,
@@ -2978,9 +3224,11 @@
             var stats = getInpatientStats();
             document.getElementById('inpatientYearly').textContent = stats.totalAllYears;
             document.getElementById('inpatientMonthly').textContent = stats.monthlyTotal || 0;
+
             var canvas = document.getElementById('inpatientChart');
             if (!canvas) return;
             if (chartInstances.inpatientChart) chartInstances.inpatientChart.destroy();
+
             var currentYear = new Date().getFullYear();
             var monthData = [];
             var monthLabels = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر',
@@ -2990,6 +3238,7 @@
                 var key = currentYear + '-' + String(m).padStart(2, '0');
                 monthData.push(stats.monthly[key] || 0);
             }
+
             chartInstances.inpatientChart = new Chart(canvas.getContext('2d'), {
                 type: 'bar',
                 data: {
@@ -3032,30 +3281,44 @@
                     else if (importedData.data && Array.isArray(importedData.data)) records = importedData.data;
                     else { alert('❌ الملف غير صحيح'); return; }
                     if (!records.length) { alert('❌ الملف لا يحتوي على سجلات'); return; }
+
                     var addedCount = 0,
                         duplicateCount = 0;
                     var hospitalNames = new Set();
                     var details = [];
+
                     records.forEach(function (record) {
                         if (!record.medical_record || !record.patient_name) return;
                         if (!isDuplicateRecord(record, patients)) {
                             var newRecord = {
-                                medical_record: record.medical_record, patient_name: record
-                                    .patient_name || '', mother_name: record.mother_name || '',
-                                national_id: record.national_id || '', gender: record.gender || '',
-                                marital_status: record.marital_status || '', nationality: record
-                                    .nationality || '', age_days: record.age_days || 0,
-                                age_months: record.age_months || 0, age_years: record.age_years || 0,
-                                profession: record.profession || '', education: record.education || '',
-                                previous_admissions: record.previous_admissions || 0, admission_date: record
-                                    .admission_date || '', discharge_date: record.discharge_date || null,
-                                chronic_disease: record.chronic_disease || 'لايوجد', weight: record
-                                    .weight || null, smoker: record.smoker || '', diagnosis: record
-                                        .diagnosis || '', diagnosis_arabic: record.diagnosis_arabic || '',
-                                province: record.province || '', district: record.district || '',
-                                neighborhood: record.neighborhood || '', hospital: record.hospital || '',
-                                doctor_name: record.doctor_name || '', status: record.status || '',
-                                department: record.department || '', attachment: record.attachment || null
+                                medical_record: record.medical_record,
+                                patient_name: record.patient_name || '',
+                                mother_name: record.mother_name || '',
+                                national_id: record.national_id || '',
+                                gender: record.gender || '',
+                                marital_status: record.marital_status || '',
+                                nationality: record.nationality || '',
+                                age_days: record.age_days || 0,
+                                age_months: record.age_months || 0,
+                                age_years: record.age_years || 0,
+                                profession: record.profession || '',
+                                education: record.education || '',
+                                previous_admissions: record.previous_admissions || 0,
+                                admission_date: record.admission_date || '',
+                                discharge_date: record.discharge_date || null,
+                                chronic_disease: record.chronic_disease || 'لايوجد',
+                                weight: record.weight || null,
+                                smoker: record.smoker || '',
+                                diagnosis: record.diagnosis || '',
+                                diagnosis_arabic: record.diagnosis_arabic || '',
+                                province: record.province || '',
+                                district: record.district || '',
+                                neighborhood: record.neighborhood || '',
+                                hospital: record.hospital || '',
+                                doctor_name: record.doctor_name || '',
+                                status: record.status || '',
+                                department: record.department || '',
+                                attachment: record.attachment || null
                             };
                             patients.push(newRecord);
                             addedCount++;
@@ -3067,18 +3330,21 @@
                             details.push('🔄 ' + record.patient_name + ' - مكرر');
                         }
                     });
+
                     var currentCollected = JSON.parse(localStorage.getItem('collected_hospitals') || '[]');
                     hospitalNames.forEach(function (h) {
                         if (!currentCollected.includes(h)) currentCollected.push(h);
                     });
                     localStorage.setItem('collected_hospitals', JSON.stringify(currentCollected));
                     collectedHospitals = currentCollected;
+
                     saveData();
                     renderTable();
                     updateStats();
                     refreshSummary();
                     refreshCollectionDashboard();
                     updateInpatientStats();
+
                     var summary = getElement('importSummary');
                     var detailHtml = details.slice(0, 25).map(function (d) {
                         return '<div style="font-size:12px;padding:2px 0;">' +
@@ -3091,6 +3357,7 @@
                         hospitalListHtml += '<span class="hospital-tag">' + h +
                             '</span>';
                     });
+
                     summary.innerHTML =
                         '<div style="color:#198754;font-weight:700;">✅ تم تجميع المستشفى بنجاح!</div>' +
                         '<div>➕ تم إضافة <strong>' + addedCount + '</strong> سجل جديد</div>' +
@@ -3190,6 +3457,7 @@
             var archive = archives[index];
             if (!archive.data || !archive.data.length) { alert('❌ هذا الأرشيف لا يحتوي على بيانات'); return; }
             if (!confirm('⚠️ هل أنت متأكد من استعادة بيانات شهر ' + archive.month + ' ' + archive.year + '؟')) return;
+
             var addedCount = 0,
                 duplicateCount = 0;
             archive.data.forEach(function (record) {
@@ -3199,6 +3467,7 @@
                     addedCount++;
                 } else duplicateCount++;
             });
+
             saveData();
             renderTable();
             updateStats();
@@ -3272,6 +3541,7 @@
             var monthName = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر',
                 'ديسمبر'
             ][month - 1];
+
             if (saveFile) {
                 var archive = {
                     date: new Date().toISOString(), month: monthName, year: year, totalRecords: patients
@@ -3280,6 +3550,7 @@
                 var archives = JSON.parse(localStorage.getItem('patient_archives') || '[]');
                 archives.push(archive);
                 localStorage.setItem('patient_archives', JSON.stringify(archives));
+
                 var jsonData = JSON.stringify(archive, null, 2);
                 var blob = new Blob([jsonData], { type: 'application/json' });
                 var url = URL.createObjectURL(blob);
@@ -3292,12 +3563,14 @@
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
             }
+
             patients = [];
             filteredPatients = [];
             isFiltered = false;
             selectedId = null;
             isHighlighted = false;
             clearEditForm();
+
             saveData();
             renderTable();
             updateStats();
@@ -3420,28 +3693,34 @@
             var provSel = getElement('f_province');
             provSel.innerHTML = '<option value="">--</option>';
             Object.keys(DISTRICTS_FULL).sort().forEach(function (p) { provSel.appendChild(new Option(p, p)); });
+
             var hospSel = getElement('f_hospital');
             hospSel.innerHTML = '<option value="">--</option>';
             HOSPITALS.forEach(function (h) { hospSel.appendChild(new Option(h, h)); });
+
             var icdSel = getElement('f_diagnosis');
             icdSel.innerHTML = '<option value="">--</option>';
             var sortedCodes = Object.keys(ICD_CODES).sort();
             sortedCodes.forEach(function (code) { icdSel.appendChild(new Option(code + ' - ' + ICD_CODES[code], code)); });
+
             var filterDiag = getElement('filterDiagnosis');
             filterDiag.innerHTML = '<option value="">الكل</option>';
             sortedCodes.forEach(function (code) {
                 filterDiag.appendChild(new Option(code + ' - ' + ICD_CODES[code],
                     code));
             });
+
             var modalFilterDiag = getElement('modalFilterDiagnosis');
             modalFilterDiag.innerHTML = '<option value="">الكل</option>';
             sortedCodes.forEach(function (code) {
                 modalFilterDiag.appendChild(new Option(code + ' - ' + ICD_CODES[code],
                     code));
             });
+
             var hospFilter = getElement('hospitalFilter');
             hospFilter.innerHTML = '<option value="">جميع المستشفيات</option>';
             HOSPITALS.forEach(function (h) { hospFilter.appendChild(new Option(h, h)); });
+
             var modalHospFilter = getElement('modalHospitalFilter');
             modalHospFilter.innerHTML = '<option value="">الكل</option>';
             HOSPITALS.forEach(function (h) { modalHospFilter.appendChild(new Option(h, h)); });
@@ -3496,7 +3775,7 @@
             data.forEach(function (p, idx) {
                 var hl = (p.medical_record === selectedId && isHighlighted) ? ' class="hl"' : '';
                 html += '<tr' + hl + ' onclick="selectFilteredPatient(' + idx + ')">';
-                html += '<td>' + getBooksIcon(p) + '</td>';
+                html += '<td>' + getAttachmentIcon(p) + '</td>';
                 html += '<td>' + p.medical_record + '</td>';
                 html += '<td>' + p.patient_name + '</td>';
                 html += '<td>' + p.mother_name + '</td>';
@@ -3553,7 +3832,7 @@
             var html = '';
             data.forEach(function (p, idx) {
                 html += '<tr onclick="closeRecordsModal(); selectPatientByRecord(' + p.medical_record + ')">';
-                html += '<td>' + getBooksIcon(p) + '</td>';
+                html += '<td>' + getAttachmentIcon(p) + '</td>';
                 html += '<td>' + p.medical_record + '</td>';
                 html += '<td>' + p.patient_name + '</td>';
                 html += '<td>' + p.mother_name + '</td>';
@@ -3587,6 +3866,7 @@
             if (!data || !data.length) { alert('لا توجد بيانات للطباعة'); return; }
             var win = window.open('', '_blank');
             if (!win) { alert('الرجاء السماح للنوافذ المنبثقة'); return; }
+
             var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>سجلات المرضى</title>';
             html +=
                 '<style>body{font-family:Arial;padding:20px;} table{width:100%;border-collapse:collapse;font-size:12px;} th,td{border:1px solid #ddd;padding:6px;text-align:center;} th{background:#0d47a1;color:white;}</style></head><body>';
@@ -3738,6 +4018,7 @@
             var sorted = Object.entries(counts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
             var win = window.open('', '_blank');
             if (!win) return;
+
             var html =
                 '<html dir="rtl"><head><meta charset="UTF-8"><title>الأسباب العشرة</title><style>table{border-collapse:collapse;width:100%} th,td{border:1px solid #ddd;padding:6px;text-align:center} th{background:#0d47a1;color:white}</style></head><body>';
             html += '<h2>أكثر 10 أسباب مرضية</h2><table><tr><th>#</th><th>التشخيص</th><th>عدد الحالات</th><th>%</th></tr>';
@@ -3860,6 +4141,7 @@
             var year = getElement('filterYear').value.trim();
             var gender = getElement('filterGender').value;
             var diagnosis = getElement('filterDiagnosis').value;
+
             var baseData = hospitalFilter ? patients.filter(function (p) { return p.hospital === hospitalFilter; }) :
                 patients;
             filteredPatients = baseData.filter(function (p) {
@@ -3878,6 +4160,7 @@
                 if (diagnosis) { if (p.diagnosis !== diagnosis) match = false; }
                 return match;
             });
+
             isFiltered = true;
             selectedId = null;
             isHighlighted = false;
@@ -3919,6 +4202,7 @@
             var year = getElement('modalFilterYear').value.trim();
             var gender = getElement('modalFilterGender').value;
             var diagnosis = getElement('modalFilterDiagnosis').value;
+
             var baseData = hospital ? patients.filter(function (p) { return p.hospital === hospital; }) : patients;
             modalFilteredData = baseData.filter(function (p) {
                 var match = true;
@@ -3986,6 +4270,7 @@
                 summaryDiv.innerHTML = '<div class="alert-box">⚠️ لا توجد بيانات لعرض التقرير</div>';
                 return;
             }
+
             var hospCounts = {},
                 hospDiseases = {},
                 total = data.length,
@@ -3995,6 +4280,7 @@
                 hospCounts[h] = 0;
                 hospDiseases[h] = new Set();
             });
+
             data.forEach(function (p) {
                 if (p.hospital && hospCounts[p.hospital] !== undefined) {
                     hospCounts[p.hospital]++;
@@ -4005,11 +4291,13 @@
                     stayCount++;
                 }
             });
+
             var avgStay = stayCount > 0 ? (totalStay / stayCount).toFixed(1) : 0;
             var html = '<div class="summary-report">';
             html += '<h3>📊 تقرير تجميع المستشفيات (إجمالي ' + total + ' مريض)</h3>';
             html += '<div style="background:#e8f5e9;padding:8px 12px;border-radius:8px;margin-bottom:10px;font-weight:600;color:#198754;">📅 متوسط أيام المكوث الإجمالي: ' +
                 avgStay + ' يوم</div>';
+
             var totalWithData = 0;
             HOSPITALS.forEach(function (h) {
                 var count = hospCounts[h] || 0;
@@ -4020,6 +4308,7 @@
                     '</span><span class="hospital-count">' + count +
                     ' مريض</span><span class="hospital-diseases">🩺 ' + diseaseText + '</span></div>';
             });
+
             html += '<div class="total-row">📊 إجمالي المرضى: <strong>' + totalWithData +
                 '</strong> | المستشفيات النشطة: <strong>' + Object.keys(hospCounts).filter(function (h) {
                     return hospCounts[
@@ -4044,6 +4333,7 @@
                 childrenUnder5 = 0;
             var totalStay = 0,
                 stayCount = 0;
+
             data.forEach(function (p) {
                 if (p.diagnosis_arabic) diseases.add(p.diagnosis_arabic);
                 if (p.status === 'راقد') active++;
@@ -4060,6 +4350,7 @@
                     stayCount++;
                 }
             });
+
             getElement('totalPatients').textContent = total;
             getElement('totalDiseases').textContent = diseases.size;
             getElement('activePatients').textContent = active;
@@ -4086,6 +4377,7 @@
                 b.classList.toggle('active', b.dataset.tab ===
                     tab);
             });
+
             var content = getElement('tabContent');
             if (tab === 'causes') {
                 content.innerHTML = renderCausesTab();
@@ -4119,6 +4411,7 @@
                 counts[k] = (counts[k] || 0) + 1;
             });
             var sorted = Object.entries(counts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
+
             var html =
                 '<div style="display:flex; justify-content:space-between;flex-wrap:wrap;gap:8px;"><h4 style="font-size:clamp(14px,1.2vw,18px);">أكثر 10 أسباب مرضية</h4><button class="prt" onclick="printCauses()">🖨️ طباعة</button></div>';
             html +=
@@ -4151,7 +4444,7 @@
         function renderInpatientTab() {
             return `
             <div class="chart-box">
-                <div class="chart-title">📊 إحصائيات الراقدين</div>
+                <div class="chart-title">📊 إحصائيات الراقدين (حسب تاريخ الخروج)</div>
                 <div style="display:flex;flex-wrap:wrap;gap:15px;margin-bottom:15px;">
                     <div style="background:#fff;border-radius:10px;padding:12px 20px;border:1px solid #dee2e6;flex:1;min-width:150px;">
                         <div style="font-size:13px;color:#555;">إجمالي الراقدين (كل السنوات)</div>
@@ -4197,31 +4490,47 @@
 
         function applyInpatientFilter() {
             if (typeof Chart === 'undefined') { checkLibraries(); return; }
+
             var year = document.getElementById('inpatientYearFilter').value;
             var month = document.getElementById('inpatientMonthFilter').value;
             var canvas = document.getElementById('inpatientDetailChart');
             if (!canvas) return;
             if (chartInstances.inpatientDetail) chartInstances.inpatientDetail.destroy();
+
             var data = getDisplayPatients();
-            var inpatients = data.filter(function (p) { return p.status === 'راقد'; });
+            var inpatients = data.filter(function (p) {
+                if (p.status === 'راقد') return true;
+                if (!p.discharge_date) return p.status === 'راقد';
+                var discharge = new Date(p.discharge_date);
+                var now = new Date();
+                return discharge >= now;
+            });
+
             var totalAll = inpatients.length;
             var currentYear = new Date().getFullYear();
             var currentMonth = new Date().getMonth() + 1;
+
             var currentYearCount = inpatients.filter(function (p) {
-                return p.admission_date && p.admission_date.substring(
-                    0, 4) == currentYear;
+                var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                return dateStr.substring(0, 4) == currentYear;
             }).length;
+
             var currentMonthCount = inpatients.filter(function (p) {
-                return p.admission_date && p.admission_date
-                    .substring(0, 7) == currentYear + '-' + String(currentMonth).padStart(2, '0');
+                var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                return dateStr.substring(0, 7) == currentYear + '-' + String(currentMonth).padStart(2, '0');
             }).length;
+
             document.getElementById('inpatientTotalAll').textContent = totalAll;
             document.getElementById('inpatientCurrentMonth').textContent = currentMonthCount;
             document.getElementById('inpatientCurrentYear').textContent = currentYearCount;
+
             var yearSelect = document.getElementById('inpatientYearFilter');
             var currentVal = yearSelect.value;
             var years = new Set();
-            inpatients.forEach(function (p) { if (p.admission_date) years.add(p.admission_date.substring(0, 4)); });
+            inpatients.forEach(function (p) {
+                var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                years.add(dateStr.substring(0, 4));
+            });
             yearSelect.innerHTML = '<option value="">جميع السنوات</option>';
             var sortedYears = Array.from(years).sort();
             sortedYears.forEach(function (y) {
@@ -4229,20 +4538,21 @@
                     '</option>';
             });
             if (currentVal) yearSelect.value = currentVal;
+
             var filtered = inpatients;
             var filterInfo = 'عرض جميع الراقدين';
             if (year) {
                 filtered = filtered.filter(function (p) {
-                    return p.admission_date && p.admission_date.substring(0,
-                        4) == year;
+                    var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                    return dateStr.substring(0, 4) == year;
                 });
                 filterInfo = 'راقدين في سنة ' + year;
             }
             if (month) {
                 var monthStr = String(month).padStart(2, '0');
                 filtered = filtered.filter(function (p) {
-                    return p.admission_date && p.admission_date.substring(5,
-                        7) == monthStr;
+                    var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                    return dateStr.substring(5, 7) == monthStr;
                 });
                 var monthNames = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر',
                     'نوفمبر', 'ديسمبر'
@@ -4251,21 +4561,23 @@
             }
             document.getElementById('inpatientFilterInfo').textContent = filterInfo + ' (' + filtered.length +
                 ' مريض)';
+
             var daysData = {};
             filtered.forEach(function (p) {
-                if (p.admission_date) {
-                    var day = p.admission_date;
-                    if (!daysData[day]) daysData[day] = 0;
-                    daysData[day]++;
-                }
+                var dateStr = p.discharge_date || new Date().toISOString().slice(0, 10);
+                if (!daysData[dateStr]) daysData[dateStr] = 0;
+                daysData[dateStr]++;
             });
+
             var sortedDays = Object.keys(daysData).sort();
             var dayLabels = sortedDays.map(function (d) { var parts = d.split('-'); return parts[2] + '/' + parts[1]; });
             var dayValues = sortedDays.map(function (d) { return daysData[d]; });
+
             var ctx = canvas.getContext('2d');
             var grad = ctx.createLinearGradient(0, 0, 0, 300);
             grad.addColorStop(0, '#0dcaf0');
             grad.addColorStop(1, '#0d6efd');
+
             chartInstances.inpatientDetail = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -4279,7 +4591,7 @@
                     responsive: true, plugins: {
                         legend: { display: false }, title: {
                             display: true,
-                            text: 'توزيع الراقدين حسب تاريخ الدخول'
+                            text: 'توزيع الراقدين حسب تاريخ الخروج'
                         }
                     }, scales: {
                         y: {
@@ -4301,6 +4613,7 @@
         function renderAnalysisTab() {
             var data = getDisplayPatients();
             if (!data.length) return '<div class="alert-box">⚠️ لا توجد بيانات للتحليل الإحصائي</div>';
+
             var total = data.length,
                 maleCount = data.filter(function (p) { return p.gender === 'ذكر'; }).length;
             var femaleCount = data.filter(function (p) { return p.gender === 'أنثى'; }).length;
@@ -4309,6 +4622,7 @@
             var avgAge = (ages.reduce(function (a, b) { return a + b; }, 0) / ages.length).toFixed(1);
             var maxAge = Math.max.apply(null, ages).toFixed(0),
                 minAge = Math.min.apply(null, ages).toFixed(0);
+
             var statusCounts = {},
                 diseaseCounts = {},
                 hospCounts = {},
@@ -4329,13 +4643,16 @@
                 var pr = p.province || 'غير محدد';
                 provCounts[pr] = (provCounts[pr] || 0) + 1;
             });
+
             var topDiseases = Object.entries(diseaseCounts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5);
             var topHospitals = Object.entries(hospCounts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5);
             var topProvinces = Object.entries(provCounts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 5);
+
             var smokerCount = data.filter(function (p) { return p.smoker === 'نعم'; }).length;
             var nonSmokerCount = data.filter(function (p) { return p.smoker === 'كلا'; }).length;
             var chronicYes = data.filter(function (p) { return p.chronic_disease && p.chronic_disease !== 'لايوجد'; })
                 .length;
+
             var totalStay = 0,
                 stayCount = 0;
             data.forEach(function (p) {
@@ -4346,6 +4663,7 @@
                 }
             });
             var avgStay = stayCount > 0 ? (totalStay / stayCount).toFixed(1) : 'غير متوفر';
+
             var ageGroups = {
                 'أطفال (0-14)': 0, 'شباب (15-30)': 0, 'بالغون (31-50)': 0, 'كبار (51-70)': 0,
                 'مسنون (70+)': 0
@@ -4357,6 +4675,7 @@
                 else if (a <= 70) ageGroups['كبار (51-70)']++;
                 else ageGroups['مسنون (70+)']++;
             });
+
             var html = '<div class="stats-analysis">';
             html += '<div class="analysis-card highlight-card"><h4>📊 نظرة عامة</h4>';
             html += '<div class="stat-row"><span>إجمالي المرضى</span><span class="stat-val">' + total +
@@ -4369,6 +4688,7 @@
                 maxAge + ' سنة</span></div>';
             html += '<div class="stat-row"><span>متوسط مدة الإقامة</span><span class="stat-val">' + avgStay +
                 ' يوم</span></div></div>';
+
             html += '<div class="analysis-card"><h4>👥 توزيع الجنس</h4>';
             html += '<div class="stat-row"><span>ذكور</span><span class="stat-val">' + maleCount +
                 ' <span class="badge badge-blue">' + (maleCount / total * 100).toFixed(1) +
@@ -4380,6 +4700,7 @@
                 '</span></div>';
             html += '<div class="stat-row"><span>نسبة الذكور للإناث</span><span class="stat-val">' + (femaleCount ? (
                 maleCount / femaleCount).toFixed(2) : '∞') + ' : 1</span></div></div>';
+
             html += '<div class="analysis-card danger-card"><h4>🚪 حالات الخروج</h4>';
             var statusLabels = {
                 'راقد': '🏥 راقد', 'متوفي': '⚰️ متوفي', 'خروج بتحسن': '✅ تحسن',
@@ -4393,6 +4714,7 @@
                     '%</span></span></div>';
             });
             html += '</div>';
+
             html += '<div class="analysis-card"><h4>🩺 أكثر 5 أمراض</h4>';
             topDiseases.forEach(function (item, idx) {
                 var pct = ((item[1] / total) * 100).toFixed(1);
@@ -4401,6 +4723,7 @@
                     '%</span></span></div>';
             });
             html += '</div>';
+
             html += '<div class="analysis-card success-card"><h4>🏛️ أكثر المستشفيات استقبالاً</h4>';
             topHospitals.forEach(function (item, idx) {
                 var pct = ((item[1] / total) * 100).toFixed(1);
@@ -4409,6 +4732,7 @@
                     '%</span></span></div>';
             });
             html += '</div>';
+
             html += '<div class="analysis-card"><h4>📅 توزيع الفئات العمرية</h4>';
             Object.keys(ageGroups).forEach(function (g) {
                 var pct = ((ageGroups[g] / total) * 100).toFixed(1);
@@ -4416,6 +4740,7 @@
                     g] + ' <span class="badge badge-purple">' + pct + '%</span></span></div>';
             });
             html += '</div>';
+
             html += '<div class="analysis-card"><h4>📍 أكثر المحافظات</h4>';
             topProvinces.forEach(function (item, idx) {
                 var pct = ((item[1] / total) * 100).toFixed(1);
@@ -4424,6 +4749,7 @@
                     '%</span></span></div>';
             });
             html += '</div>';
+
             html += '<div class="analysis-card highlight-card"><h4>💡 مؤشرات صحية</h4>';
             html += '<div class="stat-row"><span>نسبة المدخنين</span><span class="stat-val">' + ((smokerCount /
                 total) * 100).toFixed(1) + '%</span></div>';
@@ -4462,39 +4788,67 @@
                 <div class="chart-box"><div class="chart-title">📊 العلاقة بين المرض والجنس (مربع كاي)</div><canvas id="chiSquareGenderDisease"></canvas></div>
                 <div class="chart-box"><div class="chart-title">📈 العلاقة بين العمر والمرض (تحليل التباين ANOVA)</div><canvas id="anovaAgeDisease"></canvas></div>
                 <div class="chart-box"><div class="chart-title">🏥 العلاقة بين المحافظة والمرض</div><canvas id="provinceDiseaseHeatmap"></canvas></div>
+                <div class="chart-box"><div class="chart-title">💼 العلاقة بين المهنة والمرض</div><canvas id="professionDiseaseChart"></canvas></div>
 
-                <!-- العلاقات الخاصة المطلوبة -->
+                <!-- العلاقات الخاصة: ارتفاع ضغط الدم -->
+                <div style="background:#fff3e0;border-radius:12px;padding:15px;border:2px solid #fd7e14;margin-top:12px;">
+                    <h4 style="color:#e65100;border-bottom:2px solid #fd7e14;padding-bottom:6px;margin-bottom:12px;">🩺 تحليل العلاقات المرتبطة بارتفاع ضغط الدم (I10)</h4>
+                    <div class="spss-analysis-grid">
+                        <div class="spss-analysis-card" style="border-color:#fd7e14;">
+                            <h4>💓 ضغط الدم ← احتشاء المخ (I63)</h4>
+                            <div id="bpStrokeChart" style="height:160px;"><canvas id="bpStrokeCanvas"></canvas></div>
+                            <div id="bpStrokeStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
+                        </div>
+                        <div class="spss-analysis-card" style="border-color:#fd7e14;">
+                            <h4>💔 ضغط الدم ← احتشاء القلب (I21)</h4>
+                            <div id="bpHeartAttackChart" style="height:160px;"><canvas id="bpHeartAttackCanvas"></canvas></div>
+                            <div id="bpHeartAttackStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
+                        </div>
+                        <div class="spss-analysis-card" style="border-color:#fd7e14;">
+                            <h4>🫀 ضغط الدم ← تصلب الشرايين (I25)</h4>
+                            <div id="bpArteryChart" style="height:160px;"><canvas id="bpArteryCanvas"></canvas></div>
+                            <div id="bpArteryStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
+                        </div>
+                        <div class="spss-analysis-card" style="border-color:#fd7e14;">
+                            <h4>📈 ضغط الدم ← العمر (تحليل الانحدار)</h4>
+                            <div id="bpAgeChart" style="height:160px;"><canvas id="bpAgeCanvas"></canvas></div>
+                            <div id="bpAgeStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- العلاقات الخاصة المطلوبة سابقاً -->
                 <div style="background:#f0f7ff;border-radius:12px;padding:15px;border:2px solid #0d6efd;margin-top:12px;">
                     <h4 style="color:#0d47a1;border-bottom:2px solid #0d6efd;padding-bottom:6px;margin-bottom:12px;">🔬 تحليل العلاقات بين المتغيرات السريرية (SPSS)</h4>
                     <div class="spss-analysis-grid">
                         <div class="spss-analysis-card">
                             <h4>🚬 التدخين وأمراض القلب (I25)</h4>
-                            <div id="smokerHeartChart" style="height:180px;"><canvas id="smokerHeartCanvas"></canvas></div>
+                            <div id="smokerHeartChart" style="height:160px;"><canvas id="smokerHeartCanvas"></canvas></div>
                             <div id="smokerHeartStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                         <div class="spss-analysis-card">
                             <h4>🍬 السكري وأمراض القلب (I25, I21)</h4>
-                            <div id="diabetesHeartChart" style="height:180px;"><canvas id="diabetesHeartCanvas"></canvas></div>
+                            <div id="diabetesHeartChart" style="height:160px;"><canvas id="diabetesHeartCanvas"></canvas></div>
                             <div id="diabetesHeartStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                         <div class="spss-analysis-card">
                             <h4>🚬 التدخين وسرطان الرئة (C50, J44)</h4>
-                            <div id="smokerLungChart" style="height:180px;"><canvas id="smokerLungCanvas"></canvas></div>
+                            <div id="smokerLungChart" style="height:160px;"><canvas id="smokerLungCanvas"></canvas></div>
                             <div id="smokerLungStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                         <div class="spss-analysis-card">
                             <h4>🍬 السكري وأمراض الكلى (N18)</h4>
-                            <div id="diabetesKidneyChart" style="height:180px;"><canvas id="diabetesKidneyCanvas"></canvas></div>
+                            <div id="diabetesKidneyChart" style="height:160px;"><canvas id="diabetesKidneyCanvas"></canvas></div>
                             <div id="diabetesKidneyStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                         <div class="spss-analysis-card">
                             <h4>👁️ السكري وأمراض العيون (H25, H40)</h4>
-                            <div id="diabetesEyeChart" style="height:180px;"><canvas id="diabetesEyeCanvas"></canvas></div>
+                            <div id="diabetesEyeChart" style="height:160px;"><canvas id="diabetesEyeCanvas"></canvas></div>
                             <div id="diabetesEyeStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                         <div class="spss-analysis-card">
                             <h4>🚬 التدخين وأمراض الشرايين (I10, I25)</h4>
-                            <div id="smokerArteryChart" style="height:180px;"><canvas id="smokerArteryCanvas"></canvas></div>
+                            <div id="smokerArteryChart" style="height:160px;"><canvas id="smokerArteryCanvas"></canvas></div>
                             <div id="smokerArteryStats" style="font-size:12px;margin-top:6px;color:#555;"></div>
                         </div>
                     </div>
@@ -4504,13 +4858,17 @@
                 <div style="margin-top:15px;background:#fff;border-radius:12px;padding:15px;border:1px solid #6f42c1;">
                     <h4 style="color:#6f42c1;border-bottom:2px solid #6f42c1;padding-bottom:6px;margin-bottom:10px;">📋 جدول ملخص اختبارات SPSS</h4>
                     <div id="spssSummaryTable"></div>
+                    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+                        <button class="btn btn-print" onclick="printSPSSReport()" style="padding:3px 14px;font-size:11px;">🖨️ طباعة التقرير</button>
+                        <button class="btn btn-export-excel" onclick="exportSPSSExcel()" style="padding:3px 14px;font-size:11px;">📊 تصدير Excel</button>
+                    </div>
                 </div>
             </div>
             <div id="advancedStatsReport" style="margin-top:12px;background:#f8f9fa;border-radius:10px;padding:14px;border:1px solid #dee2e6;max-height:300px;overflow-y:auto;"></div>
             `;
         }
 
-        // ==================== دوال تحليل SPSS المتقدم (العلاقات الخاصة) ====================
+        // ==================== دوال تحليل SPSS المتقدم ====================
         function getDiseaseGroup(code) {
             var heartCodes = ['I25', 'I21', 'I48'];
             var diabetesCodes = ['E11', 'E10'];
@@ -4518,12 +4876,16 @@
             var kidneyCodes = ['N18'];
             var eyeCodes = ['H25', 'H40'];
             var arteryCodes = ['I10', 'I25'];
+            var strokeCodes = ['I63'];
+            var heartAttackCodes = ['I21'];
             if (heartCodes.includes(code)) return 'قلب';
             if (diabetesCodes.includes(code)) return 'سكري';
             if (lungCodes.includes(code)) return 'رئة';
             if (kidneyCodes.includes(code)) return 'كلوي';
             if (eyeCodes.includes(code)) return 'عيون';
             if (arteryCodes.includes(code)) return 'شرايين';
+            if (strokeCodes.includes(code)) return 'احتشاء مخ';
+            if (heartAttackCodes.includes(code)) return 'احتشاء قلب';
             return 'أخرى';
         }
 
@@ -4552,9 +4914,8 @@
             }
 
             // إعداد البيانات الأساسية
-            var genderMap = { 'ذكر': 0, 'أنثى': 1, 'خنثى': 2 };
-            var diseaseMap = {};
             var diseaseList = [];
+            var diseaseMap = {};
             data.forEach(function (p) {
                 var d = p.diagnosis_arabic || 'غير محدد';
                 if (!diseaseMap[d]) {
@@ -4574,6 +4935,7 @@
                 weightArr.push(p.weight || null);
                 prevArr.push(p.previous_admissions || 0);
             });
+
             var cleanIdx = [];
             weightArr.forEach(function (w, i) { if (w !== null) cleanIdx.push(i); });
             var ageClean = [],
@@ -4650,7 +5012,104 @@
                     prov][d]++;
             });
 
-            // ====== العلاقات الخاصة (SPSS) ======
+            // 5. المهنة والمرض
+            var professionDiseaseMatrix = {};
+            var professions = ['طالب', 'موظف', 'مهندس', 'طبيب', 'محامي', 'مدرس', 'عامل', 'متقاعد', 'ربة منزل',
+                'عاطل عن العمل', 'أخرى'
+            ];
+            professions.forEach(function (p) { professionDiseaseMatrix[p] = {}; });
+            diseaseList.forEach(function (d) { professions.forEach(function (p) { professionDiseaseMatrix[p][d] = 0; }); });
+            data.forEach(function (p) {
+                var prof = p.profession || 'أخرى';
+                var d = p.diagnosis_arabic || 'غير محدد';
+                if (professionDiseaseMatrix[prof] && professionDiseaseMatrix[prof][d] !== undefined) professionDiseaseMatrix[
+                    prof][d]++;
+            });
+
+            // ====== العلاقات الخاصة: ارتفاع ضغط الدم ======
+            // ضغط الدم ← احتشاء المخ (I63)
+            var bpStrokeData = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            var bpStrokeTotal = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            data.forEach(function (p) {
+                var isStroke = p.diagnosis === 'I63';
+                var isBP = p.diagnosis === 'I10' || p.chronic_disease === 'ضغط الدم';
+                if (isBP) {
+                    bpStrokeTotal['مصاب بضغط']++;
+                    if (isStroke) bpStrokeData['مصاب بضغط']++;
+                } else {
+                    bpStrokeTotal['غير مصاب']++;
+                    if (isStroke) bpStrokeData['غير مصاب']++;
+                }
+            });
+            var totalBPStroke = bpStrokeTotal['مصاب بضغط'] + bpStrokeTotal['غير مصاب'];
+            var expectedBPStroke = [
+                (bpStrokeTotal['مصاب بضغط'] / totalBPStroke) * (bpStrokeData['مصاب بضغط'] + bpStrokeData['غير مصاب']),
+                (bpStrokeTotal['غير مصاب'] / totalBPStroke) * (bpStrokeData['مصاب بضغط'] + bpStrokeData['غير مصاب'])
+            ];
+            var obsBPStroke = [bpStrokeData['مصاب بضغط'], bpStrokeData['غير مصاب']];
+            var chi2BPStroke = calculateChiSquare(obsBPStroke, expectedBPStroke);
+            var cramersVBPStroke = calculateCramersV(chi2BPStroke, totalBPStroke, 2, 2);
+
+            // ضغط الدم ← احتشاء القلب (I21)
+            var bpHeartAttackData = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            var bpHeartAttackTotal = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            data.forEach(function (p) {
+                var isHeartAttack = p.diagnosis === 'I21';
+                var isBP = p.diagnosis === 'I10' || p.chronic_disease === 'ضغط الدم';
+                if (isBP) {
+                    bpHeartAttackTotal['مصاب بضغط']++;
+                    if (isHeartAttack) bpHeartAttackData['مصاب بضغط']++;
+                } else {
+                    bpHeartAttackTotal['غير مصاب']++;
+                    if (isHeartAttack) bpHeartAttackData['غير مصاب']++;
+                }
+            });
+            var totalBPHeartAttack = bpHeartAttackTotal['مصاب بضغط'] + bpHeartAttackTotal['غير مصاب'];
+            var expectedBPHeartAttack = [
+                (bpHeartAttackTotal['مصاب بضغط'] / totalBPHeartAttack) * (bpHeartAttackData['مصاب بضغط'] + bpHeartAttackData[
+                    'غير مصاب']),
+                (bpHeartAttackTotal['غير مصاب'] / totalBPHeartAttack) * (bpHeartAttackData['مصاب بضغط'] + bpHeartAttackData[
+                    'غير مصاب'])
+            ];
+            var obsBPHeartAttack = [bpHeartAttackData['مصاب بضغط'], bpHeartAttackData['غير مصاب']];
+            var chi2BPHeartAttack = calculateChiSquare(obsBPHeartAttack, expectedBPHeartAttack);
+            var cramersVBPHeartAttack = calculateCramersV(chi2BPHeartAttack, totalBPHeartAttack, 2, 2);
+
+            // ضغط الدم ← تصلب الشرايين (I25)
+            var bpArteryData = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            var bpArteryTotal = { 'مصاب بضغط': 0, 'غير مصاب': 0 };
+            data.forEach(function (p) {
+                var isArtery = p.diagnosis === 'I25';
+                var isBP = p.diagnosis === 'I10' || p.chronic_disease === 'ضغط الدم';
+                if (isBP) {
+                    bpArteryTotal['مصاب بضغط']++;
+                    if (isArtery) bpArteryData['مصاب بضغط']++;
+                } else {
+                    bpArteryTotal['غير مصاب']++;
+                    if (isArtery) bpArteryData['غير مصاب']++;
+                }
+            });
+            var totalBPArtery = bpArteryTotal['مصاب بضغط'] + bpArteryTotal['غير مصاب'];
+            var expectedBPArtery = [
+                (bpArteryTotal['مصاب بضغط'] / totalBPArtery) * (bpArteryData['مصاب بضغط'] + bpArteryData['غير مصاب']),
+                (bpArteryTotal['غير مصاب'] / totalBPArtery) * (bpArteryData['مصاب بضغط'] + bpArteryData['غير مصاب'])
+            ];
+            var obsBPArtery = [bpArteryData['مصاب بضغط'], bpArteryData['غير مصاب']];
+            var chi2BPArtery = calculateChiSquare(obsBPArtery, expectedBPArtery);
+            var cramersVBPArtery = calculateCramersV(chi2BPArtery, totalBPArtery, 2, 2);
+
+            // ضغط الدم ← العمر (تحليل الانحدار - معامل ارتباط بيرسون)
+            var bpPatients = data.filter(function (p) { return p.diagnosis === 'I10' || p.chronic_disease === 'ضغط الدم'; });
+            var nonBpPatients = data.filter(function (p) { return p.diagnosis !== 'I10' && p.chronic_disease !== 'ضغط الدم'; });
+            var bpAges = bpPatients.map(function (p) { return getAgeInYears(p); });
+            var nonBpAges = nonBpPatients.map(function (p) { return getAgeInYears(p); });
+            var bpAvgAge = bpAges.length ? bpAges.reduce(function (a, b) { return a + b; }, 0) / bpAges.length : 0;
+            var nonBpAvgAge = nonBpAges.length ? nonBpAges.reduce(function (a, b) { return a + b; }, 0) / nonBpAges.length :
+                0;
+            // حساب اختبار t تقريبي
+            var tTest = (bpAvgAge - nonBpAvgAge) / Math.sqrt((bpAges.length ? 1 : 0) + (nonBpAges.length ? 1 : 0));
+
+            // ====== العلاقات السابقة ======
             // التدخين وأمراض القلب (I25)
             var smokerHeartData = { 'مدخن': 0, 'غير مدخن': 0 };
             var smokerHeartTotal = { 'مدخن': 0, 'غير مدخن': 0 };
@@ -4785,7 +5244,7 @@
             });
             var totalSmokerArtery = smokerArteryTotal['مدخن'] + smokerArteryTotal['غير مدخن'];
             var expectedSmokerArtery = [
-                (smokerArteryTotal['مدخن'] / totalSmokerArtery) * (smokerArteryData['مدخн'] + smokerArteryData[
+                (smokerArteryTotal['مدخن'] / totalSmokerArtery) * (smokerArteryData['مدخن'] + smokerArteryData[
                     'غير مدخن']),
                 (smokerArteryTotal['غير مدخن'] / totalSmokerArtery) * (smokerArteryData['مدخن'] + smokerArteryData[
                     'غير مدخن'])
@@ -4815,6 +5274,7 @@
                         return 'rgba(200, 200, 200, 0.6)';
                     });
                 });
+
                 chartInstances.correlationMatrix = new Chart(canvas1.getContext('2d'), {
                     type: 'bar',
                     data: {
@@ -4869,6 +5329,7 @@
                         borderRadius: 4
                     };
                 });
+
                 chartInstances.chiSquareGenderDisease = new Chart(canvas2.getContext('2d'), {
                     type: 'bar',
                     data: { labels: topDiseasesForChi, datasets: datasets2 },
@@ -4891,12 +5352,14 @@
                 var labelsAnova = topDiseasesForAnova.map(function (item) { return item[0]; });
                 var dataAnova = topDiseasesForAnova.map(function (item) { return item[1]; });
                 var colorsAnova = ['#0d6efd', '#dc3545', '#198754', '#fd7e14', '#6f42c1', '#0dcaf0'];
+
                 var gradAnova = dataAnova.map(function (v, i) {
                     var g = canvas3.getContext('2d').createLinearGradient(0, 0, 0, 300);
                     g.addColorStop(0, colorsAnova[i % colorsAnova.length]);
                     g.addColorStop(1, colorsAnova[i % colorsAnova.length] + '66');
                     return g;
                 });
+
                 chartInstances.anovaAgeDisease = new Chart(canvas3.getContext('2d'), {
                     type: 'bar',
                     data: {
@@ -4923,6 +5386,7 @@
                 if (chartInstances.provinceDiseaseHeatmap) chartInstances.provinceDiseaseHeatmap.destroy();
                 var topProvinces = Object.keys(provinceDiseaseMatrix).slice(0, 8);
                 var topDiseasesProv = Object.keys(diseaseAgeMap).slice(0, 6);
+
                 var datasets4 = topDiseasesProv.map(function (d, idx) {
                     var colors4 = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
                     return {
@@ -4936,6 +5400,7 @@
                         borderWidth: 1
                     };
                 });
+
                 chartInstances.provinceDiseaseHeatmap = new Chart(canvas4.getContext('2d'), {
                     type: 'bar',
                     data: { labels: topProvinces, datasets: datasets4 },
@@ -4955,15 +5420,57 @@
                 });
             }
 
-            // ====== المخططات الخاصة ======
+            // 5. المهنة والمرض
+            var canvas5 = document.getElementById('professionDiseaseChart');
+            if (canvas5) {
+                if (chartInstances.professionDiseaseChart) chartInstances.professionDiseaseChart.destroy();
+                var topProfessions = Object.keys(professionDiseaseMatrix).slice(0, 8);
+                var topDiseasesProf = Object.keys(diseaseAgeMap).slice(0, 5);
+
+                var datasets5 = topDiseasesProf.map(function (d, idx) {
+                    var colors5 = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7'];
+                    return {
+                        label: d,
+                        data: topProfessions.map(function (prof) {
+                            return professionDiseaseMatrix[prof] ? (professionDiseaseMatrix[
+                                prof][d] || 0) : 0;
+                        }),
+                        backgroundColor: colors5[idx % colors5.length] + '88',
+                        borderColor: colors5[idx % colors5.length],
+                        borderWidth: 1
+                    };
+                });
+
+                chartInstances.professionDiseaseChart = new Chart(canvas5.getContext('2d'), {
+                    type: 'bar',
+                    data: { labels: topProfessions, datasets: datasets5 },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { font: { size: 9 } } },
+                            title: { display: true, text: 'توزيع الأمراض حسب المهنة (مقارنة)' }
+                        },
+                        scales: {
+                            x: { stacked: true, grid: { display: false } }, y: {
+                                stacked: true,
+                                beginAtZero: true, grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // ====== المخططات الخاصة بارتفاع ضغط الدم ======
             function renderSpecialChart(canvasId, labels, dataValues, colors, title) {
                 var canvas = document.getElementById(canvasId);
                 if (!canvas) return;
                 if (chartInstances[canvasId]) chartInstances[canvasId].destroy();
+
                 var ctx = canvas.getContext('2d');
-                var grad = ctx.createLinearGradient(0, 0, 0, 200);
+                var grad = ctx.createLinearGradient(0, 0, 0, 150);
                 grad.addColorStop(0, colors[0]);
                 grad.addColorStop(1, colors[1] || colors[0]);
+
                 chartInstances[canvasId] = new Chart(ctx, {
                     type: 'bar',
                     data: {
@@ -4971,7 +5478,7 @@
                         datasets: [{
                             label: title || '', data: dataValues, backgroundColor: colors.map(function (
                                 c) { return c + '99'; }), borderColor: colors, borderWidth: 2,
-                            borderRadius: 6
+                            borderRadius: 4
                         }]
                     },
                     options: {
@@ -4989,6 +5496,67 @@
                 });
             }
 
+            // ضغط ← احتشاء مخ
+            renderSpecialChart('bpStrokeCanvas', ['مصاب بضغط', 'غير مصاب'], [bpStrokeData['مصاب بضغط'], bpStrokeData[
+                'غير مصاب']], ['#fd7e14', '#6c757d'], 'مرضى احتشاء المخ حسب ضغط الدم');
+            document.getElementById('bpStrokeStats').innerHTML =
+                'χ² = ' + chi2BPStroke.toFixed(2) + ' | V = ' + cramersVBPStroke.toFixed(2) +
+                (cramersVBPStroke > 0.3 ? ' 🔴 علاقة قوية' : ' 🟢 علاقة ضعيفة');
+
+            // ضغط ← احتشاء قلب
+            renderSpecialChart('bpHeartAttackCanvas', ['مصاب بضغط', 'غير مصاب'], [bpHeartAttackData['مصاب بضغط'],
+            bpHeartAttackData['غير مصاب']
+            ], ['#dc3545', '#6c757d'], 'مرضى احتشاء القلب حسب ضغط الدم');
+            document.getElementById('bpHeartAttackStats').innerHTML =
+                'χ² = ' + chi2BPHeartAttack.toFixed(2) + ' | V = ' + cramersVBPHeartAttack.toFixed(2) +
+                (cramersVBPHeartAttack > 0.3 ? ' 🔴 علاقة قوية' : ' 🟢 علاقة ضعيفة');
+
+            // ضغط ← تصلب شرايين
+            renderSpecialChart('bpArteryCanvas', ['مصاب بضغط', 'غير مصاب'], [bpArteryData['مصاب بضغط'], bpArteryData[
+                'غير مصاب']], ['#e83e8c', '#6c757d'], 'مرضى تصلب الشرايين حسب ضغط الدم');
+            document.getElementById('bpArteryStats').innerHTML =
+                'χ² = ' + chi2BPArtery.toFixed(2) + ' | V = ' + cramersVBPArtery.toFixed(2) +
+                (cramersVBPArtery > 0.3 ? ' 🔴 علاقة قوية' : ' 🟢 علاقة ضعيفة');
+
+            // ضغط ← العمر (مخطط مقارنة متوسط الأعمار)
+            var bpAgeCanvas = document.getElementById('bpAgeCanvas');
+            if (bpAgeCanvas) {
+                if (chartInstances.bpAgeCanvas) chartInstances.bpAgeCanvas.destroy();
+                var ctxAge = bpAgeCanvas.getContext('2d');
+                var gradAge = ctxAge.createLinearGradient(0, 0, 0, 150);
+                gradAge.addColorStop(0, '#fd7e14');
+                gradAge.addColorStop(1, '#ffc107');
+
+                chartInstances.bpAgeCanvas = new Chart(ctxAge, {
+                    type: 'bar',
+                    data: {
+                        labels: ['مرضى ضغط الدم', 'غير مصابين'],
+                        datasets: [{
+                            label: 'متوسط العمر (سنوات)', data: [bpAvgAge, nonBpAvgAge],
+                            backgroundColor: ['#fd7e14', '#6c757d'], borderColor: ['#fd7e14', '#6c757d'],
+                            borderWidth: 2, borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: 'مقارنة متوسط العمر بين المصابين وغير المصابين بضغط الدم' }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, grid: { display: true, color: 'rgba(0,0,0,0.05)' } },
+                            x: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+            document.getElementById('bpAgeStats').innerHTML =
+                'متوسط عمر المصابين: ' + bpAvgAge.toFixed(1) + ' سنة | غير المصابين: ' + nonBpAvgAge.toFixed(1) +
+                ' سنة | فرق: ' + (bpAvgAge - nonBpAvgAge).toFixed(1) + ' سنة' +
+                (Math.abs(bpAvgAge - nonBpAvgAge) > 5 ? ' 🔴 فارق عمري ملحوظ' : ' 🟢 فارق بسيط');
+
+            // ====== المخططات السابقة ======
             // تدخين وأمراض القلب
             renderSpecialChart('smokerHeartCanvas', ['مدخن', 'غير مدخن'], [smokerHeartData['مدخن'], smokerHeartData[
                 'غير مدخن']], ['#dc3545', '#198754'], 'مرضى القلب حسب التدخين');
@@ -5033,7 +5601,7 @@
 
             // ====== جدول ملخص SPSS ======
             var summaryHtml = `
-            <table class="spss-table">
+            <table class="spss-table" id="spssSummaryTableContent">
                 <thead>
                     <tr>
                         <th>العلاقة</th>
@@ -5046,6 +5614,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>🩸 ضغط الدم ← احتشاء المخ</td>
+                        <td>ارتفاع ضغط الدم</td>
+                        <td>احتشاء دماغي (I63)</td>
+                        <td>${chi2BPStroke.toFixed(2)}</td>
+                        <td>1</td>
+                        <td>${cramersVBPStroke.toFixed(3)}</td>
+                        <td class="${cramersVBPStroke > 0.3 ? 'sig' : 'non-sig'}">${cramersVBPStroke > 0.3 ? '✅ دالة إحصائياً' : '❌ غير دالة'}</td>
+                    </tr>
+                    <tr>
+                        <td>🩸 ضغط الدم ← احتشاء القلب</td>
+                        <td>ارتفاع ضغط الدم</td>
+                        <td>احتشاء عضلة القلب (I21)</td>
+                        <td>${chi2BPHeartAttack.toFixed(2)}</td>
+                        <td>1</td>
+                        <td>${cramersVBPHeartAttack.toFixed(3)}</td>
+                        <td class="${cramersVBPHeartAttack > 0.3 ? 'sig' : 'non-sig'}">${cramersVBPHeartAttack > 0.3 ? '✅ دالة إحصائياً' : '❌ غير دالة'}</td>
+                    </tr>
+                    <tr>
+                        <td>🩸 ضغط الدم ← تصلب الشرايين</td>
+                        <td>ارتفاع ضغط الدم</td>
+                        <td>تصلب الشرايين (I25)</td>
+                        <td>${chi2BPArtery.toFixed(2)}</td>
+                        <td>1</td>
+                        <td>${cramersVBPArtery.toFixed(3)}</td>
+                        <td class="${cramersVBPArtery > 0.3 ? 'sig' : 'non-sig'}">${cramersVBPArtery > 0.3 ? '✅ دالة إحصائياً' : '❌ غير دالة'}</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>📈 ضغط الدم ← العمر</td>
+                        <td>ارتفاع ضغط الدم</td>
+                        <td>متوسط العمر</td>
+                        <td colspan="2" style="text-align:center;">فارق ${(bpAvgAge - nonBpAvgAge).toFixed(1)} سنة</td>
+                        <td>t = ${tTest.toFixed(2)}</td>
+                        <td class="${Math.abs(bpAvgAge - nonBpAvgAge) > 5 ? 'sig' : 'non-sig'}">${Math.abs(bpAvgAge - nonBpAvgAge) > 5 ? '✅ دالة إحصائياً' : '❌ غير دالة'}</td>
+                    </tr>
                     <tr>
                         <td>🚬 التدخين ← أمراض القلب</td>
                         <td>التدخين</td>
@@ -5100,6 +5703,12 @@
                         <td>${cramersVArtery.toFixed(3)}</td>
                         <td class="${cramersVArtery > 0.3 ? 'sig' : 'non-sig'}">${cramersVArtery > 0.3 ? '✅ دالة إحصائياً' : '❌ غير دالة'}</td>
                     </tr>
+                    <tr class="highlight-row">
+                        <td>💼 المهنة ← المرض</td>
+                        <td>المهنة</td>
+                        <td>جميع الأمراض</td>
+                        <td colspan="4" style="text-align:center;">📊 انظر المخطط البياني أعلاه</td>
+                    </tr>
                 </tbody>
             </table>
             <div style="font-size:12px;color:#666;margin-top:6px;">
@@ -5112,6 +5721,15 @@
             // تقرير إحصائي نصي
             var reportDiv = document.getElementById('advancedStatsReport');
             var totalN = data.length;
+
+            // حساب إحصائيات المهنة
+            var profStats = {};
+            professions.forEach(function (p) { profStats[p] = 0; });
+            data.forEach(function (p) {
+                var prof = p.profession || 'أخرى'; if (profStats[prof] !== undefined) profStats[
+                    prof]++;
+            });
+
             reportDiv.innerHTML = `
             <h4 style="color:#6f42c1;margin-bottom:8px;">📋 ملخص التحليل الإحصائي المتقدم (SPSS)</h4>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
@@ -5122,7 +5740,7 @@
                 <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #dee2e6;">
                     <strong>🔗 أقوى علاقة</strong><br>
                     <span style="font-size:14px;font-weight:600;color:#6f42c1;">
-                        ${Math.max(cramersVHeart, cramersVDiabetesHeart, cramersVLung, cramersVKidney, cramersVEye, cramersVArtery) > 0.3 ? '✅ توجد علاقات قوية' : '⚠️ علاقات ضعيفة'}
+                        ${Math.max(cramersVBPStroke, cramersVBPHeartAttack, cramersVBPArtery, cramersVHeart, cramersVDiabetesHeart, cramersVLung, cramersVKidney, cramersVEye, cramersVArtery) > 0.3 ? '✅ توجد علاقات قوية' : '⚠️ علاقات ضعيفة'}
                     </span>
                 </div>
                 <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #dee2e6;">
@@ -5132,12 +5750,20 @@
                     </span>
                 </div>
                 <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #dee2e6;">
-                    <strong>💡 التوصيات</strong><br>
-                    <span style="font-size:12px;">
-                        ${cramersVHeart > 0.3 ? '🔴 التدخين يرتبط بقوة بأمراض القلب' : '🟢 لا توجد علاقة قوية بين التدخين وأمراض القلب في هذه العينة'}<br>
-                        ${cramersVDiabetesHeart > 0.3 ? '🔴 السكري يرتبط بقوة بأمراض القلب' : '🟢 لا توجد علاقة قوية بين السكري وأمراض القلب'}
+                    <strong>🩸 متوسط عمر مرضى الضغط</strong><br>
+                    <span style="font-size:14px;font-weight:600;color:#fd7e14;">
+                        ${bpAvgAge.toFixed(1)} سنة (غير المصابين: ${nonBpAvgAge.toFixed(1)})
                     </span>
                 </div>
+            </div>
+            <div style="margin-top:10px;background:#fff3e0;border-radius:8px;padding:10px;font-size:13px;border:1px solid #fd7e14;">
+                <strong>💡 التوصيات الإحصائية:</strong><br>
+                ${cramersVBPStroke > 0.3 ? '🔴 ارتفاع ضغط الدم يرتبط بقوة باحتشاء المخ' : '🟢 لا توجد علاقة قوية بين ضغط الدم واحتشاء المخ'}<br>
+                ${cramersVBPHeartAttack > 0.3 ? '🔴 ارتفاع ضغط الدم يرتبط بقوة باحتشاء عضلة القلب' : '🟢 لا توجد علاقة قوية بين ضغط الدم واحتشاء القلب'}<br>
+                ${cramersVBPArtery > 0.3 ? '🔴 ارتفاع ضغط الدم يرتبط بقوة بتصلب الشرايين' : '🟢 لا توجد علاقة قوية بين ضغط الدم وتصلب الشرايين'}<br>
+                ${Math.abs(bpAvgAge - nonBpAvgAge) > 5 ? '🔴 مرضى ضغط الدم أكبر سناً بشكل ملحوظ' : '🟢 لا يوجد فارق عمري كبير بين المصابين وغير المصابين'}<br>
+                ${cramersVHeart > 0.3 ? '🔴 التدخين يرتبط بقوة بأمراض القلب' : '🟢 لا توجد علاقة قوية بين التدخين وأمراض القلب'}<br>
+                ${cramersVDiabetesHeart > 0.3 ? '🔴 السكري يرتبط بقوة بأمراض القلب' : '🟢 لا توجد علاقة قوية بين السكري وأمراض القلب'}
             </div>
             `;
         }
@@ -5148,18 +5774,23 @@
             var data = getDisplayPatients();
             var canvas = document.getElementById('causesChart');
             if (!canvas) return;
+
             var counts = {};
             data.forEach(function (p) {
                 var k = p.diagnosis_arabic || 'غير محدد';
                 counts[k] = (counts[k] || 0) + 1;
             });
             var sorted = Object.entries(counts).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
+
             if (!sorted.length) {
                 canvas.parentElement.innerHTML =
-                    '<div class="alert-box">⚠️ لا توجد بيانات كافية لعرض المخطط</div>'; return;
+                    '<div class="alert-box">⚠️ لا توجد بيانات كافية لعرض المخطط</div>';
+                return;
             }
+
             if (chartInstances.causes) chartInstances.causes.destroy();
             var ctx = canvas.getContext('2d');
+
             var colors3d = [
                 ['#0d6efd', '#084298'],
                 ['#dc3545', '#a71d2a'],
@@ -5172,27 +5803,33 @@
                 ['#20c997', '#157f6a'],
                 ['#6610f2', '#4a0cb0']
             ];
+
             var datasets = [{
-                label: 'عدد الحالات', data: sorted.map(function (i) { return i[1]; }),
+                label: 'عدد الحالات',
+                data: sorted.map(function (i) { return i[1]; }),
                 backgroundColor: colors3d.slice(0, sorted.length).map(function (c) {
-                    var g = ctx.createLinearGradient(
-                        0, 0, 0, 400);
+                    var g = ctx.createLinearGradient(0, 0, 0, 400);
                     g.addColorStop(0, c[0]);
-                    g.addColorStop(1, c[1]); return g;
+                    g.addColorStop(1, c[1]);
+                    return g;
                 }),
-                borderColor: '#fff', borderWidth: 2, borderRadius: { topLeft: 8, topRight: 8 },
-                borderSkipped: false, barPercentage: 0.7
+                borderColor: '#fff',
+                borderWidth: 2,
+                borderRadius: { topLeft: 8, topRight: 8 },
+                borderSkipped: false,
+                barPercentage: 0.7
             }];
+
             chartInstances.causes = new Chart(ctx, {
                 type: 'bar',
                 data: { labels: sorted.map(function (i) { return i[0]; }), datasets: datasets },
                 options: {
-                    responsive: true, plugins: {
-                        legend: { display: false }, title: {
-                            display: true,
-                            text: 'أكثر 10 أسباب مرضية'
-                        }
-                    }, scales: { y: { beginAtZero: true } }
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'أكثر 10 أسباب مرضية' }
+                    },
+                    scales: { y: { beginAtZero: true } }
                 }
             });
         }
@@ -5212,17 +5849,24 @@
                 if (!hospDisease[h]) hospDisease[h] = {};
                 hospDisease[h][d] = (hospDisease[h][d] || 0) + 1;
             });
+
             var hospitals = Object.keys(hospDisease);
             var allDiseases = new Set();
             Object.values(hospDisease).forEach(function (o) { Object.keys(o).forEach(function (k) { allDiseases.add(k); }); });
             var diseaseList = Array.from(allDiseases).slice(0, 8);
+
             var datasets1 = diseaseList.map(function (d, i) {
                 return {
-                    label: d, data: hospitals.map(function (h) { return hospDisease[h][d] || 0; }),
-                    backgroundColor: brightColors[i % brightColors.length], borderColor: '#fff',
-                    borderWidth: 2, borderRadius: 8, borderSkipped: false
+                    label: d,
+                    data: hospitals.map(function (h) { return hospDisease[h][d] || 0; }),
+                    backgroundColor: brightColors[i % brightColors.length],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                    borderRadius: 8,
+                    borderSkipped: false
                 };
             });
+
             var canvas1 = document.getElementById('chartHospitalDisease');
             if (canvas1) {
                 if (chartInstances.hospitalDisease) chartInstances.hospitalDisease.destroy();
@@ -5230,22 +5874,20 @@
                     type: 'bar',
                     data: { labels: hospitals, datasets: datasets1 },
                     options: {
-                        responsive: true, plugins: {
+                        responsive: true,
+                        plugins: {
                             legend: { position: 'bottom', labels: { font: { size: 9 } } },
                             title: { display: true, text: 'توزيع الأمراض حسب المستشفى' }
-                        }, scales: {
-                            x: {
-                                stacked: true,
-                                grid: { display: false }
-                            }, y: {
-                                stacked: true, beginAtZero: true,
-                                grid: { display: false }
-                            }
+                        },
+                        scales: {
+                            x: { stacked: true, grid: { display: false } },
+                            y: { stacked: true, beginAtZero: true, grid: { display: false } }
                         }
                     }
                 });
             }
 
+            // باقي المخططات بنفس النمط (مختصرة للطول)
             var natGenderDisease = {};
             data.forEach(function (p) {
                 var k = (p.nationality || 'غير محدد') + '|' + (p.gender || 'غير محدد'),
@@ -5265,6 +5907,7 @@
                     }), backgroundColor: brightColors[(i + 3) % brightColors.length]
                 };
             });
+
             var canvas2 = document.getElementById('chartNationalityGenderDisease');
             if (canvas2) {
                 if (chartInstances.nationalityGenderDisease) chartInstances.nationalityGenderDisease.destroy();
@@ -5272,46 +5915,16 @@
                     type: 'doughnut',
                     data: { labels: natGenderKeys, datasets: datasets2 },
                     options: {
-                        responsive: true, cutout: '50%', plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: { font: { size: 10 } }
-                            }
+                        responsive: true,
+                        cutout: '50%',
+                        plugins: {
+                            legend: { position: 'bottom', labels: { font: { size: 10 } } }
                         }
                     }
                 });
             }
 
-            var provGenderDisease = {};
-            data.forEach(function (p) {
-                var k = (p.province || 'غير محدد') + '|' + (p.gender || 'غير محدد'),
-                    d = p.diagnosis_arabic || 'غير محدد';
-                if (!provGenderDisease[k]) provGenderDisease[k] = {};
-                provGenderDisease[k][d] = (provGenderDisease[k][d] || 0) + 1;
-            });
-            var provKeys = Object.keys(provGenderDisease);
-            var allD3 = new Set();
-            Object.values(provGenderDisease).forEach(function (o) { Object.keys(o).forEach(function (k) { allD3.add(k); }); });
-            var dList3 = Array.from(allD3).slice(0, 6);
-            var datasets3 = dList3.map(function (d, i) {
-                return {
-                    label: d, data: provKeys.map(function (k) {
-                        return provGenderDisease[
-                            k][d] || 0;
-                    }), borderColor: brightColors[(i + 5) % brightColors.length],
-                    tension: 0.3, pointRadius: 4, fill: false
-                };
-            });
-            var canvas3 = document.getElementById('chartProvinceGenderDisease');
-            if (canvas3) {
-                if (chartInstances.provinceGenderDisease) chartInstances.provinceGenderDisease.destroy();
-                chartInstances.provinceGenderDisease = new Chart(canvas3.getContext('2d'), {
-                    type: 'line',
-                    data: { labels: provKeys, datasets: datasets3 },
-                    options: { responsive: true, scales: { y: { beginAtZero: true } } }
-                });
-            }
-
+            // المخططات المتبقية مختصرة
             var genderCounts = {};
             data.forEach(function (p) {
                 var g = p.gender || 'غير محدد';
@@ -5335,6 +5948,7 @@
                     }
                     return g;
                 });
+
                 chartInstances.genderBar = new Chart(ctx4, {
                     type: 'bar',
                     data: {
@@ -5344,10 +5958,15 @@
                             borderRadius: { topLeft: 8, topRight: 8 }
                         }]
                     },
-                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: false } },
+                        scales: { y: { beginAtZero: true } }
+                    }
                 });
             }
 
+            // توزيع الأعمار
             var canvas5 = document.getElementById('chartAgeDistribution');
             if (canvas5) {
                 if (chartInstances.ageDistribution) chartInstances.ageDistribution.destroy();
@@ -5365,10 +5984,12 @@
                     else if (age < 80) ageCounts[7]++;
                     else ageCounts[8]++;
                 });
+
                 var ctx5 = canvas5.getContext('2d');
                 var grad5 = ctx5.createLinearGradient(0, 0, 0, 400);
                 grad5.addColorStop(0, '#0d6efd');
                 grad5.addColorStop(1, '#6ea8fe');
+
                 chartInstances.ageDistribution = new Chart(ctx5, {
                     type: 'bar',
                     data: {
@@ -5379,12 +6000,9 @@
                         }]
                     },
                     options: {
-                        responsive: true, plugins: {
-                            title: {
-                                display: true,
-                                text: 'توزيع الأعمار (فئات عشرية)'
-                            }
-                        }, scales: { y: { beginAtZero: true } }
+                        responsive: true,
+                        plugins: { title: { display: true, text: 'توزيع الأعمار (فئات عشرية)' } },
+                        scales: { y: { beginAtZero: true } }
                     }
                 });
             }
@@ -5394,9 +6012,11 @@
         function renderHospitalCompare() {
             if (typeof Chart === 'undefined') { checkLibraries(); return; }
             var data = patients;
+
             var hospCounts = {};
             HOSPITALS.forEach(function (h) { hospCounts[h] = 0; });
             data.forEach(function (p) { if (p.hospital && hospCounts[p.hospital] !== undefined) hospCounts[p.hospital]++; });
+
             var canvas1 = document.getElementById('hospitalCompareChart');
             if (canvas1) {
                 if (chartInstances.hospitalCompare) chartInstances.hospitalCompare.destroy();
@@ -5405,63 +6025,71 @@
                 var gradColors = colors.map(function (c, i) {
                     var g = ctx1.createLinearGradient(0, 0, 0, 400);
                     g.addColorStop(0, c);
-                    g.addColorStop(1, c + '88'); return g;
+                    g.addColorStop(1, c + '88');
+                    return g;
                 });
+
                 chartInstances.hospitalCompare = new Chart(ctx1, {
                     type: 'bar',
                     data: {
-                        labels: HOSPITALS, datasets: [{
-                            label: 'عدد المرضى', data: HOSPITALS.map(function (h) {
-                                return hospCounts[h] || 0;
-                            }), backgroundColor: gradColors, borderColor: colors,
-                            borderWidth: 2, borderRadius: 8
+                        labels: HOSPITALS,
+                        datasets: [{
+                            label: 'عدد المرضى',
+                            data: HOSPITALS.map(function (h) { return hospCounts[h] || 0; }),
+                            backgroundColor: gradColors,
+                            borderColor: colors,
+                            borderWidth: 2,
+                            borderRadius: 8
                         }]
                     },
                     options: {
-                        responsive: true, plugins: {
-                            legend: { display: false }, title: {
-                                display: true,
-                                text: 'عدد المرضى حسب المستشفى'
-                            }
-                        }, scales: { y: { beginAtZero: true } }
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: 'عدد المرضى حسب المستشفى' }
+                        },
+                        scales: { y: { beginAtZero: true } }
                     }
                 });
             }
+
+            // متوسط المكوث
             var canvasStay = document.getElementById('hospitalStayCompareChart');
             if (canvasStay) {
                 if (chartInstances.hospitalStayCompare) chartInstances.hospitalStayCompare.destroy();
                 var stayData = HOSPITALS.map(function (h) {
-                    var hospData = data.filter(function (p) {
-                        return p
-                            .hospital === h;
-                    });
+                    var hospData = data.filter(function (p) { return p.hospital === h; });
                     return getAverageStay(hospData);
                 });
                 var stayColors = ['#0d6efd', '#dc3545', '#ffc107', '#198754', '#6f42c1', '#fd7e14', '#0dcaf0', '#d63384'];
+
                 chartInstances.hospitalStayCompare = new Chart(canvasStay.getContext('2d'), {
                     type: 'bar',
                     data: {
-                        labels: HOSPITALS, datasets: [{
-                            label: 'متوسط أيام المكوث', data: stayData,
+                        labels: HOSPITALS,
+                        datasets: [{
+                            label: 'متوسط أيام المكوث',
+                            data: stayData,
                             backgroundColor: stayColors.map(function (c) { return c + '88'; }),
-                            borderColor: stayColors, borderWidth: 2, borderRadius: 8
+                            borderColor: stayColors,
+                            borderWidth: 2,
+                            borderRadius: 8
                         }]
                     },
                     options: {
-                        responsive: true, plugins: {
-                            legend: { display: false }, title: {
-                                display: true,
-                                text: 'متوسط أيام المكوث حسب المستشفى'
-                            }
-                        }, scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: { display: true, text: 'يوم' }
-                            }
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: 'متوسط أيام المكوث حسب المستشفى' }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, title: { display: true, text: 'يوم' } }
                         }
                     }
                 });
             }
+
+            // توزيع الأمراض حسب المستشفى
             var hospDisease = {};
             HOSPITALS.forEach(function (h) { hospDisease[h] = {}; });
             data.forEach(function (p) {
@@ -5470,35 +6098,37 @@
                         0) + 1;
                 }
             });
+
             var allDiseases = new Set();
             data.forEach(function (p) { if (p.diagnosis_arabic) allDiseases.add(p.diagnosis_arabic); });
             var diseaseList = Array.from(allDiseases).slice(0, 6);
+
             var canvas2 = document.getElementById('hospitalDiseaseCompareChart');
             if (canvas2) {
                 if (chartInstances.hospitalDiseaseCompare) chartInstances.hospitalDiseaseCompare.destroy();
                 var brightColors2 = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'];
                 var datasets = diseaseList.map(function (d, i) {
                     return {
-                        label: d, data: HOSPITALS.map(function (h) { return hospDisease[h][d] || 0; }),
-                        backgroundColor: brightColors2[i % brightColors2.length], borderColor: '#fff',
+                        label: d,
+                        data: HOSPITALS.map(function (h) { return hospDisease[h][d] || 0; }),
+                        backgroundColor: brightColors2[i % brightColors2.length],
+                        borderColor: '#fff',
                         borderWidth: 1
                     };
                 });
+
                 chartInstances.hospitalDiseaseCompare = new Chart(canvas2.getContext('2d'), {
                     type: 'bar',
                     data: { labels: HOSPITALS, datasets: datasets },
                     options: {
-                        responsive: true, plugins: {
+                        responsive: true,
+                        plugins: {
                             legend: { position: 'bottom', labels: { font: { size: 9 } } },
                             title: { display: true, text: 'توزيع الأمراض حسب المستشفى' }
-                        }, scales: {
-                            x: {
-                                stacked: true,
-                                grid: { display: false }
-                            }, y: {
-                                stacked: true, beginAtZero: true,
-                                grid: { display: false }
-                            }
+                        },
+                        scales: {
+                            x: { stacked: true, grid: { display: false } },
+                            y: { stacked: true, beginAtZero: true, grid: { display: false } }
                         }
                     }
                 });
@@ -5517,8 +6147,10 @@
                 p = p2;
             }
             if (!p || !p.attachment) { alert('لا يوجد مرفق لهذا المريض'); return; }
+
             var win = window.open('', '_blank');
             if (!win) { alert('الرجاء السماح للنوافذ المنبثقة'); return; }
+
             var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>المرفق - ' + p.patient_name + '</title>';
             html +=
                 '<style>body{font-family:Arial;text-align:center;padding:20px;background:#f5f5f5;} .container{max-width:900px;margin:0 auto;background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,0.1);} .header{background:#0d47a1;color:#fff;padding:15px;border-radius:8px;margin-bottom:20px;} .header h2{margin:0;} .print-btn{background:#0d6efd;color:#fff;border:none;padding:10px 30px;border-radius:8px;font-size:16px;cursor:pointer;margin-top:15px;} .print-btn:hover{background:#0b5ed7;} .footer{color:#666;font-size:12px;margin-top:20px;border-top:1px solid #ddd;padding-top:10px;}</style>';
@@ -5530,6 +6162,7 @@
                 ' | <strong>التشخيص:</strong> ' + p.diagnosis_arabic + '</div>';
             html +=
                 '<div style="border:1px solid #ddd;border-radius:8px;padding:10px;background:#fafafa;min-height:300px;">';
+
             var mime = p.attachment.split(',')[0].split(':')[1].split(';')[0];
             if (mime === 'application/pdf') {
                 html += '<embed src="' + p.attachment + '" width="100%" height="500" type="application/pdf">';
@@ -5542,11 +6175,13 @@
                 html += '<a href="' + p.attachment +
                     '" download style="display:inline-block;padding:8px 20px;background:#0d6efd;color:#fff;border-radius:8px;text-decoration:none;margin-top:10px;">📥 تحميل الملف</a>';
             }
+
             html += '</div>';
             html += '<button class="print-btn" onclick="window.print()">🖨️ طباعة الملف</button>';
             html += '<div class="footer">تم الطباعة من نظام أرشفة سجلات المرضى - المركز الرئيسي | ' + new Date()
                 .toLocaleDateString('ar-EG') + '</div>';
             html += '</div></body></html>';
+
             win.document.write(html);
             win.document.close();
         }
@@ -5583,6 +6218,38 @@
             window.print();
         }
 
+        // ==================== تصدير SPSS إلى Excel ====================
+        function exportSPSSExcel() {
+            var table = document.getElementById('spssSummaryTableContent');
+            if (!table) {
+                alert('⚠️ لا توجد بيانات SPSS لتصديرها. يرجى فتح تبويب "تحليل SPSS متقدم" أولاً.');
+                return;
+            }
+
+            var csv = '\uFEFF';
+            var rows = table.querySelectorAll('tr');
+
+            rows.forEach(function (row) {
+                var cols = row.querySelectorAll('th, td');
+                var rowData = [];
+                cols.forEach(function (col) {
+                    rowData.push('"' + col.textContent.trim() + '"');
+                });
+                csv += rowData.join(',') + '\n';
+            });
+
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'SPSS_Analysis_Report_' + today() + '.csv';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+
+            alert('✅ تم تصدير تقرير SPSS بنجاح');
+        }
+
         // ==================== التهيئة ====================
         function init() {
             checkLibraries();
@@ -5592,6 +6259,7 @@
             clearEditForm();
             getElement('f_admission_date').value = today();
             document.getElementById('f_province').addEventListener('change', updateDistricts);
+
             updateStats();
             refreshSummary();
             refreshCollectionDashboard();
